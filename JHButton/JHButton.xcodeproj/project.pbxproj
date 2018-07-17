@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8142654E204AAB41009E2B2D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8142654D204AAB41009E2B2D /* AppDelegate.m */; };
+		81426551204AAB41009E2B2D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81426550204AAB41009E2B2D /* ViewController.m */; };
+		81426556204AAB41009E2B2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81426555204AAB41009E2B2D /* Assets.xcassets */; };
+		8142655C204AAB41009E2B2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8142655B204AAB41009E2B2D /* main.m */; };
+		81426564204AABB1009E2B2D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81426563204AABB1009E2B2D /* File.swift */; };
+		81426568204AACFF009E2B2D /* JHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 81426567204AACFF009E2B2D /* JHButton.m */; };
+		81426570204AB7C6009E2B2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8142656E204AB7C6009E2B2D /* Main.storyboard */; };
+		81426571204AB7C6009E2B2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8142656F204AB7C6009E2B2D /* LaunchScreen.storyboard */; };
+		C99A5898A8D402A94CFDB237 /* Pods_JHButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8232FB6F0F98AE91B1F352A /* Pods_JHButton.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		160A7D3F2DFF10C7CFE3D40E /* Pods-JHButton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHButton.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JHButton/Pods-JHButton.debug.xcconfig"; sourceTree = "<group>"; };
+		7F7F0B75AB4B7ACD1AC59ACE /* Pods-JHButton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHButton.release.xcconfig"; path = "Pods/Target Support Files/Pods-JHButton/Pods-JHButton.release.xcconfig"; sourceTree = "<group>"; };
+		81426549204AAB41009E2B2D /* JHButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8142654C204AAB41009E2B2D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8142654D204AAB41009E2B2D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8142654F204AAB41009E2B2D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		81426550204AAB41009E2B2D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		81426555204AAB41009E2B2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8142655A204AAB41009E2B2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8142655B204AAB41009E2B2D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		81426562204AABB0009E2B2D /* JHButton-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JHButton-Bridging-Header.h"; sourceTree = "<group>"; };
+		81426563204AABB1009E2B2D /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		81426566204AACFF009E2B2D /* JHButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHButton.h; sourceTree = "<group>"; };
+		81426567204AACFF009E2B2D /* JHButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHButton.m; sourceTree = "<group>"; };
+		8142656A204AB12E009E2B2D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		8142656E204AB7C6009E2B2D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8142656F204AB7C6009E2B2D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B8232FB6F0F98AE91B1F352A /* Pods_JHButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JHButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		81426546204AAB41009E2B2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C99A5898A8D402A94CFDB237 /* Pods_JHButton.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		253966DBE34DDA24217A94D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8232FB6F0F98AE91B1F352A /* Pods_JHButton.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		81426540204AAB41009E2B2D = {
+			isa = PBXGroup;
+			children = (
+				8142654B204AAB41009E2B2D /* JHButton */,
+				8142654A204AAB41009E2B2D /* Products */,
+				C713CD09C4FB051D2FB48E42 /* Pods */,
+				253966DBE34DDA24217A94D9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8142654A204AAB41009E2B2D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81426549204AAB41009E2B2D /* JHButton.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8142654B204AAB41009E2B2D /* JHButton */ = {
+			isa = PBXGroup;
+			children = (
+				8142656F204AB7C6009E2B2D /* LaunchScreen.storyboard */,
+				8142656E204AB7C6009E2B2D /* Main.storyboard */,
+				8142654C204AAB41009E2B2D /* AppDelegate.h */,
+				8142654D204AAB41009E2B2D /* AppDelegate.m */,
+				8142654F204AAB41009E2B2D /* ViewController.h */,
+				81426550204AAB41009E2B2D /* ViewController.m */,
+				81426565204AACD8009E2B2D /* JHButton */,
+				81426563204AABB1009E2B2D /* File.swift */,
+				81426555204AAB41009E2B2D /* Assets.xcassets */,
+				8142655A204AAB41009E2B2D /* Info.plist */,
+				8142655B204AAB41009E2B2D /* main.m */,
+				8142656A204AB12E009E2B2D /* PrefixHeader.pch */,
+				81426562204AABB0009E2B2D /* JHButton-Bridging-Header.h */,
+			);
+			path = JHButton;
+			sourceTree = "<group>";
+		};
+		81426565204AACD8009E2B2D /* JHButton */ = {
+			isa = PBXGroup;
+			children = (
+				81426566204AACFF009E2B2D /* JHButton.h */,
+				81426567204AACFF009E2B2D /* JHButton.m */,
+			);
+			path = JHButton;
+			sourceTree = "<group>";
+		};
+		C713CD09C4FB051D2FB48E42 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				160A7D3F2DFF10C7CFE3D40E /* Pods-JHButton.debug.xcconfig */,
+				7F7F0B75AB4B7ACD1AC59ACE /* Pods-JHButton.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		81426548204AAB41009E2B2D /* JHButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8142655F204AAB41009E2B2D /* Build configuration list for PBXNativeTarget "JHButton" */;
+			buildPhases = (
+				2F61EC0543CECA695327F170 /* [CP] Check Pods Manifest.lock */,
+				81426545204AAB41009E2B2D /* Sources */,
+				81426546204AAB41009E2B2D /* Frameworks */,
+				81426547204AAB41009E2B2D /* Resources */,
+				8A10FFF721786683D3CB1543 /* [CP] Embed Pods Frameworks */,
+				555FF033203941003CB5E1B6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JHButton;
+			productName = JHButton;
+			productReference = 81426549204AAB41009E2B2D /* JHButton.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		81426541204AAB41009E2B2D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = iOS;
+				TargetAttributes = {
+					81426548204AAB41009E2B2D = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 81426544204AAB41009E2B2D /* Build configuration list for PBXProject "JHButton" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 81426540204AAB41009E2B2D;
+			productRefGroup = 8142654A204AAB41009E2B2D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81426548204AAB41009E2B2D /* JHButton */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		81426547204AAB41009E2B2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81426571204AB7C6009E2B2D /* LaunchScreen.storyboard in Resources */,
+				81426556204AAB41009E2B2D /* Assets.xcassets in Resources */,
+				81426570204AB7C6009E2B2D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F61EC0543CECA695327F170 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JHButton-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		555FF033203941003CB5E1B6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JHButton/Pods-JHButton-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A10FFF721786683D3CB1543 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JHButton/Pods-JHButton-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JHButton/Pods-JHButton-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		81426545204AAB41009E2B2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81426551204AAB41009E2B2D /* ViewController.m in Sources */,
+				81426564204AABB1009E2B2D /* File.swift in Sources */,
+				81426568204AACFF009E2B2D /* JHButton.m in Sources */,
+				8142655C204AAB41009E2B2D /* main.m in Sources */,
+				8142654E204AAB41009E2B2D /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8142655D204AAB41009E2B2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8142655E204AAB41009E2B2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		81426560204AAB41009E2B2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 160A7D3F2DFF10C7CFE3D40E /* Pods-JHButton.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 226YH5AK6L;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/JHButton/PrefixHeader.pch";
+				INFOPLIST_FILE = JHButton/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hu.JHButton;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JHButton/JHButton-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		81426561204AAB41009E2B2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F7F0B75AB4B7ACD1AC59ACE /* Pods-JHButton.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 226YH5AK6L;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/JHButton/PrefixHeader.pch";
+				INFOPLIST_FILE = JHButton/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hu.JHButton;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JHButton/JHButton-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		81426544204AAB41009E2B2D /* Build configuration list for PBXProject "JHButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8142655D204AAB41009E2B2D /* Debug */,
+				8142655E204AAB41009E2B2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8142655F204AAB41009E2B2D /* Build configuration list for PBXNativeTarget "JHButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81426560204AAB41009E2B2D /* Debug */,
+				81426561204AAB41009E2B2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 81426541204AAB41009E2B2D /* Project object */;
+}
