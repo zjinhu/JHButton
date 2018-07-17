@@ -162,38 +162,43 @@
  */
 - (void)setLeft{
     [_topOrLeftView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.left.mas_equalTo(self);
-        make.right.mas_equalTo(self.imageView.mas_left);
+        make.top.equalTo(self.mas_top);
+        make.bottom.equalTo(self.mas_bottom);
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.imageView.mas_left);
         if (self.marginTopOrLeft != JHImageButtonDefaultUnSetMargin) {
-            make.width.mas_equalTo(self.marginTopOrLeft);
-        }else if (self.marginTopOrLeft == self.marginBottomOrRight){
-            make.width.mas_equalTo(self.bottomOrRightView.mas_width);
+            make.width.equalTo(@(self.marginTopOrLeft));
+        }
+        else if (self.marginTopOrLeft == self.marginBottomOrRight){
+            make.width.equalTo(self.bottomOrRightView.mas_width);
         }
     }];
     
     [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self);
-        make.right.mas_equalTo(self.contentLabel.mas_left).offset(-self.marginMiddle);
+        make.centerY.equalTo(self.mas_centerY);
+        make.right.equalTo(self.contentLabel.mas_left).offset(-self.marginMiddle);
     }];
     
     [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self);
-        make.right.mas_equalTo(self.bottomOrRightView.mas_left);
+        make.centerY.equalTo(self.mas_centerY);
+        make.right.equalTo(self.bottomOrRightView.mas_left);
         make.width.priorityLow();
-        make.width.mas_lessThanOrEqualTo(self);
+        make.width.lessThanOrEqualTo(self.mas_width);
         
     }];
     
     [_bottomOrRightView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.right.mas_equalTo(self);
+        make.top.equalTo(self.mas_top);
+        make.bottom.equalTo(self.mas_bottom);
+        make.right.equalTo(self.mas_right);
         if (self.marginBottomOrRight != JHImageButtonDefaultUnSetMargin) {
-            make.width.mas_equalTo(self.marginBottomOrRight);
+            make.width.equalTo(@(self.marginBottomOrRight));
         }
     }];
     
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_greaterThanOrEqualTo(self.imageView.mas_height);
-        make.height.mas_greaterThanOrEqualTo(self.contentLabel.mas_height);
+        make.height.greaterThanOrEqualTo(self.imageView.mas_height);
+        make.height.greaterThanOrEqualTo(self.contentLabel.mas_height);
     }];
 }
 
@@ -203,41 +208,44 @@
 - (void)setRight{
     
     [_topOrLeftView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.left.mas_equalTo(self);
-        make.right.mas_equalTo(self.contentLabel.mas_left);
+        make.top.equalTo(self.mas_top);
+        make.bottom.equalTo(self.mas_bottom);
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.contentLabel.mas_left);
         if (self.marginTopOrLeft != JHImageButtonDefaultUnSetMargin) {
-            make.width.mas_equalTo(self.marginTopOrLeft);
-        }else if (self.marginTopOrLeft == _marginBottomOrRight){
-            make.width.mas_equalTo(self.bottomOrRightView.mas_width);
+            make.width.equalTo(@(self.marginTopOrLeft));
+        }
+        else if (self.marginTopOrLeft == _marginBottomOrRight){
+            make.width.equalTo(self.bottomOrRightView.mas_width);
         }
     }];
     
     [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self);
-        make.right.mas_equalTo(self.imageView.mas_left).offset(-self.marginMiddle);
+        make.centerY.equalTo(self.mas_centerY);
+        make.right.equalTo(self.imageView.mas_left).offset(-self.marginMiddle);
         make.width.priorityLow();
-        make.width.mas_lessThanOrEqualTo(self);
+        make.width.lessThanOrEqualTo(self.mas_width);
     }];
     
     
     [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self);
-        make.right.mas_equalTo(self.bottomOrRightView.mas_left);
+        make.centerY.equalTo(self.mas_centerY);
+        make.right.equalTo(self.bottomOrRightView.mas_left);
         
     }];
     
     [_bottomOrRightView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self);
-        make.bottom.mas_equalTo(self);
-        make.right.mas_equalTo(self);
+        make.top.equalTo(self.mas_top);
+        make.bottom.equalTo(self.mas_bottom);
+        make.right.equalTo(self.mas_right);
         if (self.marginBottomOrRight != JHImageButtonDefaultUnSetMargin) {
-            make.width.mas_equalTo(self.marginBottomOrRight);
+            make.width.equalTo(@(self.marginBottomOrRight));
         }
     }];
     
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_greaterThanOrEqualTo(self.imageView.mas_height);
-        make.height.mas_greaterThanOrEqualTo(self.contentLabel.mas_height);
+        make.height.greaterThanOrEqualTo(self.imageView.mas_height);
+        make.height.greaterThanOrEqualTo(self.contentLabel.mas_height);
     }];
 }
 
@@ -248,41 +256,42 @@
     
     
     [_topOrLeftView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self);
-        make.left.mas_equalTo(self);
-        make.right.mas_equalTo(self);
-        make.bottom.mas_equalTo(self.imageView.mas_top);
+        make.top.equalTo(self.mas_top);
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.mas_right);
+        make.bottom.equalTo(self.imageView.mas_top);
         if (self.marginTopOrLeft != JHImageButtonDefaultUnSetMargin) {
-            make.height.mas_equalTo(self.marginTopOrLeft);
-        }else if (self.marginTopOrLeft == _marginBottomOrRight){
-            make.height.mas_equalTo(self.bottomOrRightView.mas_height);
+            make.height.equalTo(@(self.marginTopOrLeft));
+        }
+        else if (self.marginTopOrLeft == _marginBottomOrRight){
+            make.height.equalTo(self.bottomOrRightView.mas_height);
         }
     }];
     
     [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self);
-        make.bottom.mas_equalTo(self.contentLabel.mas_top).offset(-self.marginMiddle);
+        make.centerX.equalTo(self.mas_centerX);
+        make.bottom.equalTo(self.contentLabel.mas_top).offset(-self.marginMiddle);
     }];
     
     [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self);
-        make.bottom.mas_equalTo(self.bottomOrRightView.mas_top);
+        make.centerX.equalTo(self.mas_centerX);
+        make.bottom.equalTo(self.bottomOrRightView.mas_top);
         make.height.priorityLow();
-        make.height.mas_lessThanOrEqualTo(self);
+        make.height.lessThanOrEqualTo(self.mas_height);
     }];
     
     [_bottomOrRightView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self);
-        make.right.mas_equalTo(self);
-        make.bottom.mas_equalTo(self);
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.mas_right);
+        make.bottom.equalTo(self.mas_bottom);
         if (self.marginBottomOrRight != JHImageButtonDefaultUnSetMargin) {
-            make.height.mas_equalTo(self.marginBottomOrRight);
+            make.height.equalTo(@(self.marginBottomOrRight));
         }
     }];
     
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_greaterThanOrEqualTo(self.imageView.mas_width);
-        make.width.mas_greaterThanOrEqualTo(self.contentLabel.mas_width);
+        make.width.greaterThanOrEqualTo(self.imageView.mas_width);
+        make.width.greaterThanOrEqualTo(self.contentLabel.mas_width);
     }];
     
 }
@@ -294,44 +303,44 @@
     
     
     [_topOrLeftView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self);
-        make.left.mas_equalTo(self);
-        make.right.mas_equalTo(self);
-        make.bottom.mas_equalTo(_contentLabel.mas_top);
+        make.top.equalTo(self.mas_top);
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.mas_right);
+        make.bottom.equalTo(_contentLabel.mas_top);
         if (self.marginTopOrLeft != JHImageButtonDefaultUnSetMargin) {
-            make.height.mas_equalTo(self.marginTopOrLeft);
+            make.height.equalTo(@(self.marginTopOrLeft));
         }
         else if (self.marginTopOrLeft == _marginBottomOrRight){
-            make.height.mas_equalTo(self.bottomOrRightView.mas_height);
+            make.height.equalTo(self.bottomOrRightView.mas_height);
         }
     }];
     
     [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self);
-        make.bottom.mas_equalTo(self.imageView.mas_top).offset(-self.marginMiddle);
+        make.centerX.equalTo(self.mas_centerX);
+        make.bottom.equalTo(self.imageView.mas_top).offset(-self.marginMiddle);
         make.height.priorityLow();
-        make.height.mas_lessThanOrEqualTo(self);
+        make.height.lessThanOrEqualTo(self.mas_height);
     }];
     
     
     [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self);
-        make.bottom.mas_equalTo(self.bottomOrRightView.mas_top);
+        make.centerX.equalTo(self.mas_centerX);
+        make.bottom.equalTo(self.bottomOrRightView.mas_top);
         
     }];
     
     [_bottomOrRightView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self);
-        make.right.mas_equalTo(self);
-        make.bottom.mas_equalTo(self);
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.mas_right);
+        make.bottom.equalTo(self.mas_bottom);
         if (self.marginBottomOrRight != JHImageButtonDefaultUnSetMargin) {
-            make.height.mas_equalTo(self.marginBottomOrRight);
+            make.height.equalTo(@(self.marginBottomOrRight));
         }
     }];
     
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_greaterThanOrEqualTo(self.imageView.mas_width);
-        make.width.mas_greaterThanOrEqualTo(self.contentLabel.mas_width);
+        make.width.greaterThanOrEqualTo(self.imageView.mas_width);
+        make.width.greaterThanOrEqualTo(self.contentLabel.mas_width);
     }];
 }
 
@@ -365,10 +374,10 @@
     }
     
     [_backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.mas_top);
-        make.left.mas_equalTo(self.mas_left);
-        make.right.mas_equalTo(self.mas_right);
-        make.bottom.mas_equalTo(self.mas_bottom);
+        make.top.equalTo(self.mas_top);
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.mas_right);
+        make.bottom.equalTo(self.mas_bottom);
     }];
 }
 
