@@ -201,7 +201,8 @@ static CGFloat const JHImageButtonDefaultUnSetMargin = -1001;
  *  @param normalBackgroundImage    正常背景图片
  *  @param highLightBackgroundImage 高亮背景图片
  */
-- (void)setNormalBackgroundImage:(UIImage *)normalBackgroundImage AndHighLightBackgroundImage:(UIImage *)highLightBackgroundImage;
+- (void)setNormalBackgroundImage:(UIImage *)normalBackgroundImage
+     AndHighLightBackgroundImage:(UIImage *)highLightBackgroundImage;
 
 /**
  *  设置背景图片
