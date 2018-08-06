@@ -102,6 +102,9 @@
 //        make.left.equalTo(0);
 //        make.width.priorityHigh();
 //    }];
+    [btn6 handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        
+    }];
 }
 
 
