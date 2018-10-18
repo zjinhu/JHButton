@@ -130,6 +130,7 @@ static char controlEventKey;
     [self addSubview:_contentLabel];
     
     _imageView = [[UIImageView alloc] init];
+    [_imageView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     _imageView.image = _image;
     [self addSubview:_imageView];
     
