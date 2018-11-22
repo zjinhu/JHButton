@@ -23,7 +23,7 @@
     JHButton *btn1 = [[JHButton alloc] initWithType:JHImageButtonTypeTop AndMarginArr:@[@5]];
     btn1.backgroundColor = ColorOfRandom;
     btn1.image = [UIImage imageNamed:@"image1"];
-    btn1.text = @"按钮1";
+    btn1.text = @"按钮1按钮1按钮1按钮1按钮1按钮1按钮1按钮1按钮1";
     btn1.contentLabel.textColor = [UIColor redColor];
     btn1.contentLabel.font = [UIFont systemFontOfSize:13];
     btn1.contentLabel.textAlignment =NSTextAlignmentLeft;
