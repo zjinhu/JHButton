@@ -96,14 +96,14 @@ static char controlEventKey;
     return self;
 }
 ///添加点击事件
--(void)handleControlEvent:(UIControlEvents)controlEvent withBlock:(void (^)(void))actionBlock {
+-(void)handleControlEvent:(UIControlEvents)controlEvent withBlock:(void (^)(id sender))actionBlock {
     [self addTarget:self action:@selector(callActionBlock:) forControlEvents:controlEvent];
     objc_setAssociatedObject(self, &controlEventKey, actionBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (void)callActionBlock:(id)sender {
-    void (^block)(void) =  objc_getAssociatedObject(self, &controlEventKey);
-    if (block)  block();
+    void (^block)(id sender) =  objc_getAssociatedObject(self, &controlEventKey);
+    if (block)  block(sender);
 }
 /**
  *  基础布局
