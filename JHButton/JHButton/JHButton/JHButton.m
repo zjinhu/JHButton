@@ -8,7 +8,6 @@
 static char controlEventKey;
 #import "JHButton.h"
 #import "Masonry.h"
-#import <objc/message.h>
 
 @interface JHButton()
 /**
@@ -72,8 +71,7 @@ static char controlEventKey;
  *  按钮类型
  */
 @property (nonatomic,assign) JHImageButtonType type;
-
-
+@property (nonatomic,copy) ActionBlock actionBlock;
 @end
 
 @implementation JHButton
@@ -96,14 +94,15 @@ static char controlEventKey;
     return self;
 }
 ///添加点击事件
--(void)handleControlEvent:(UIControlEvents)controlEvent withBlock:(void (^)(id sender))actionBlock {
+-(void)handleControlEvent:(UIControlEvents)controlEvent withBlock:(ActionBlock)actionBlock {
     [self addTarget:self action:@selector(callActionBlock:) forControlEvents:controlEvent];
-    objc_setAssociatedObject(self, &controlEventKey, actionBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    _actionBlock = actionBlock;
 }
 
 - (void)callActionBlock:(id)sender {
-    void (^block)(id sender) =  objc_getAssociatedObject(self, &controlEventKey);
-    if (block)  block(sender);
+    if (_actionBlock){
+        _actionBlock(sender);
+    }
 }
 /**
  *  基础布局

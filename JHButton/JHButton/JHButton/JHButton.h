@@ -61,6 +61,8 @@ static CGFloat const JHImageButtonDefaultMargin = 8;
  */
 static CGFloat const JHImageButtonDefaultUnSetMargin = -1001;
 
+typedef void(^ActionBlock)(id sender);
+
 @interface JHButton : UIControl
 /**
  *  文本
@@ -229,6 +231,6 @@ static CGFloat const JHImageButtonDefaultUnSetMargin = -1001;
 - (instancetype)initWithType:(JHImageButtonType)type
                 AndMarginArr:(NSArray *)arr;
 ///点击事件
-- (void) handleControlEvent:(UIControlEvents)controlEvent withBlock:(void(^)(id sender))actionBlock;
+- (void) handleControlEvent:(UIControlEvents)controlEvent withBlock:(ActionBlock)actionBlock;
 
 @end
