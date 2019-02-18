@@ -45,7 +45,7 @@
         make.left.mas_equalTo(btn1.mas_right).offset(10);
     }];
     
-    JHButton *btn3 = [[JHButton alloc] initWithType:JHImageButtonTypeLeft AndMarginArr:@[@5]];
+    JHButton *btn3 = [[JHButton alloc] initWithType:JHImageButtonTypeLeft AndMarginArr:@[@0]];
     btn3.backgroundColor = ColorOfRandom;
     btn3.text = @"按钮2";
     btn3.contentLabel.textColor = [UIColor redColor];
@@ -53,8 +53,8 @@
     btn3.contentLabel.textAlignment =NSTextAlignmentLeft;
     [self.view addSubview:btn3];
     [btn3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.view).offset(20);
-        make.left.mas_equalTo(btn2.mas_right).offset(10);
+        make.top.mas_equalTo(btn2.mas_bottom).offset(20);
+        make.left.mas_equalTo(btn2.mas_left);
     }];
     
     JHButton *btn4 = [[JHButton alloc] initWithType:JHImageButtonTypeLeft AndMarginArr:@[@0]];
@@ -65,8 +65,8 @@
     btn4.contentLabel.textAlignment =NSTextAlignmentLeft;
     [self.view addSubview:btn4];
     [btn4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.view).offset(20);
-        make.left.mas_equalTo(btn3.mas_right).offset(10);
+        make.top.mas_equalTo(btn3.mas_bottom).offset(20);
+        make.left.mas_equalTo(btn3.mas_left).offset(10);
     }];
     
     JHButton *btn5 = [[JHButton alloc] initWithType:JHImageButtonTypeLeft AndMarginArr:@[@0]];
