@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 #import "JHButton.h"
 @interface ViewController ()
 

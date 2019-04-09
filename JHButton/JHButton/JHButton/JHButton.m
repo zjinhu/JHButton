@@ -7,7 +7,7 @@
 //
 
 #import "JHButton.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface JHButton()
 /**
