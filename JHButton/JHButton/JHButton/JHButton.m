@@ -471,7 +471,15 @@
     _highLightColor = highLightColor;
     _disableColor = disableColor;
     _selectedColor = selectedColor;
-    self.backgroundColor = normalColor;
+    if (_currentState == JHButtonStateDisable) {
+        self.backgroundColor = disableColor;
+    }else if(_currentState == JHButtonStateNormal){
+        self.backgroundColor = normalColor;
+    }else if(_currentState == JHButtonStateSelected){
+        self.backgroundColor = selectedColor;
+    }else if(_currentState == JHButtonStateHighLight){
+        self.backgroundColor = highLightColor;
+    }
 }
 /**
  *  设置按钮图片 可以为nil
@@ -713,7 +721,7 @@
         self.backgroundImageView.image = _normalBackgroundImage;
     }
     
-    self.alpha = 1.0;
+    //    self.alpha = 1.0;
 }
 
 /**
@@ -789,10 +797,10 @@
     if (_disableBackgroundImage) {
         self.backgroundImageView.image = _disableBackgroundImage;
     }
-    
-    if (!_disableColor && !_disableImage && !_disableTextColor && !_disableLayerColor && !_disableBackgroundImage) {
-        self.alpha = 0.6;
-    }
+    //
+    //    if (!_disableColor && !_disableImage && !_disableTextColor && !_disableLayerColor && !_disableBackgroundImage) {
+    //        self.alpha = 0.6;
+    //    }
     
 }
 
