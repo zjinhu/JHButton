@@ -1,6 +1,8 @@
 # JHButton
 iOS图文自定义按钮，继承与UIControl，OC版本基于Masonry实现，Swift版本基于SnapKit实现。
 可以实现各种各样的按钮，点击也可以实现根据图片自动适应按钮大小，详见demo。
+
+
 ![1.gif](https://github.com/jackiehu/JHButton/blob/master/Image/1.gif)
 
 
