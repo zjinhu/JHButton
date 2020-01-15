@@ -1,4 +1,4 @@
-lane :JHButton do |options|
+lane :release_pod do |options|
 
   target_version = options[:t]
  
