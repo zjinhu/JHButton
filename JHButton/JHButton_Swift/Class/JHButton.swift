@@ -399,6 +399,12 @@ extension JHButton{
     
     //MARK: --样式设置
     
+    /// 设置背景颜色
+    /// - Parameters:
+    ///   - normalColor: 普通状态
+    ///   - highLightColor: 点击状态
+    ///   - selectedColor: 选中状态
+    ///   - disableColor: 不可用状态
     public func setBackColor(normalColor : UIColor,
                              highLightColor : UIColor? = .clear,
                              selectedColor : UIColor? = .clear,
@@ -419,6 +425,12 @@ extension JHButton{
         }
     }
     
+    /// 设置图片
+    /// - Parameters:
+    ///   - normalImage: 普通状态
+    ///   - highLightImage: 点击状态
+    ///   - selectedImage: 选中状态
+    ///   - disableImage: 不可用状态
     public func setImage(normalImage : UIImage,
                          highLightImage : UIImage? = nil,
                          selectedImage : UIImage? = nil,
@@ -439,6 +451,12 @@ extension JHButton{
         }
     }
     
+    /// 设置标题字体颜色
+    /// - Parameters:
+    ///   - normalTitleColor: 普通状态
+    ///   - highLightTitleColor: 点击状态
+    ///   - selectedTitleColor: 选中状态
+    ///   - disableTitleColor: 不可用状态
     public func setTitleColor(normalTitleColor : UIColor,
                               highLightTitleColor : UIColor? = .clear,
                               selectedTitleColor : UIColor? = .clear,
@@ -459,6 +477,12 @@ extension JHButton{
         }
     }
     
+    /// 设置边框颜色
+    /// - Parameters:
+    ///   - normalLayerColor: 普通状态
+    ///   - highLightLayerColor: 点击状态
+    ///   - selectedLayerColor: 选中状态
+    ///   - disableLayerColor: 不可用状态
     public func setLayerColor(normalLayerColor : UIColor,
                               highLightLayerColor : UIColor? = .clear,
                               selectedLayerColor : UIColor? = .clear,
@@ -479,6 +503,12 @@ extension JHButton{
         }
     }
     
+    /// 设置背景图片
+    /// - Parameters:
+    ///   - normalBackImage: 普通状态
+    ///   - highLightBackImage: 点击状态
+    ///   - selectedBackImage: 选中状态
+    ///   - disableBackImage: 不可用状态
     public func setBackImage(normalBackImage : UIImage,
                          highLightBackImage : UIImage? = nil,
                          selectedBackImage : UIImage? = nil,
