@@ -21,7 +21,8 @@ class ViewController: UIViewController {
         but.titleLabel.font = UIFont.systemFont(ofSize: 13)
         self.view.addSubview(but)
         but.snp.makeConstraints { (make) in
-            make.top.left.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(80)
         }
         
         let btn2 = JHButton.init(.imageButtonTypeLeft)
