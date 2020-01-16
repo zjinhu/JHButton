@@ -1,7 +1,7 @@
  
 Pod::Spec.new do |s|
   s.name             = 'JHButton_Swift'
-  s.version          = '0.2.0'
+  s.version          = '0.5.0'
   s.summary          = '自定义图文按钮.'
  
   s.description      = <<-DESC
@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
   s.author           = { 'HU' => '814030966@qq.com' }
   s.source           = { :git => 'https://github.com/jackiehu/JHButton.git', :tag => s.version.to_s }
  
-  s.platform         = :ios, "9.0"
-  s.ios.deployment_target = "9.0"
+  s.platform         = :ios, "10.0"
+  s.ios.deployment_target = "10.0"
   s.swift_version     = '5.1'
   s.source_files = 'JHButton/JHButton_Swift/Class/**/*'
   s.frameworks   = "UIKit" #支持的框架
