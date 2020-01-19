@@ -32,7 +32,7 @@ public enum JHButtonState {
 }
 
 
-open class JHButton: UIControl {
+class JHButton: UIControl {
 
     ///按钮的闭包回调
     public typealias ActionBlock = (_ sender: JHButton) -> Void
