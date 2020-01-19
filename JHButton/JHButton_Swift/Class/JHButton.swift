@@ -157,9 +157,6 @@ class JHButton: UIControl {
     private var type : JHImageButtonType = .imageButtonTypeLeft
     
     private var actionBlock : ActionBlock?
-}
-
-extension JHButton{
     
     /// 创建按钮
     /// - Parameters:
@@ -172,6 +169,10 @@ extension JHButton{
         
         setRootSubView()
     }
+}
+
+extension JHButton{
+    
     ///触发点击
     public func handleControlEvent(_ event : UIControl.Event , action : @escaping ActionBlock) {
         addTarget(self, action: #selector(callActionBlock), for: event)

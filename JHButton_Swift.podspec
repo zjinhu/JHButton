@@ -1,7 +1,7 @@
  
 Pod::Spec.new do |s|
   s.name             = 'JHButton_Swift'
-  s.version          = '0.6.0'
+  s.version          = '0.7.0'
   s.summary          = '自定义图文按钮.'
  
   s.description      = <<-DESC
