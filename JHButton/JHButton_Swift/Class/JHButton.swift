@@ -32,7 +32,7 @@ public enum JHButtonState {
 }
 
 
-class JHButton: UIControl {
+public class JHButton: UIControl {
 
     ///按钮的闭包回调
     public typealias ActionBlock = (_ sender: JHButton) -> Void
@@ -157,6 +157,10 @@ class JHButton: UIControl {
     private var type : JHImageButtonType = .imageButtonTypeLeft
     
     private var actionBlock : ActionBlock?
+
+}
+
+extension JHButton{
     
     /// 创建按钮
     /// - Parameters:
@@ -169,9 +173,6 @@ class JHButton: UIControl {
         
         setRootSubView()
     }
-}
-
-extension JHButton{
     
     ///触发点击
     public func handleControlEvent(_ event : UIControl.Event , action : @escaping ActionBlock) {
