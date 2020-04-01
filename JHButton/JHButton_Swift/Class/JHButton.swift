@@ -10,14 +10,14 @@ import UIKit
 import SnapKit
 
 public enum JHImageButtonType {
-        ///按钮图片居左 文案居右 可以影响父布局的大小
-        case imageButtonTypeLeft
-        ///按钮图片居右 文案居左 可以影响父布局的大小
-        case imageButtonTypeRight
-        ///按钮图片居上 文案居下 可以影响父布局的大小
-        case imageButtonTypeTop
-        ///按钮图片居下 文案居上 可以影响父布局的大小
-        case imageButtonTypeBottom
+    ///按钮图片居左 文案居右 可以影响父布局的大小
+    case imageButtonTypeLeft
+    ///按钮图片居右 文案居左 可以影响父布局的大小
+    case imageButtonTypeRight
+    ///按钮图片居上 文案居下 可以影响父布局的大小
+    case imageButtonTypeTop
+    ///按钮图片居下 文案居上 可以影响父布局的大小
+    case imageButtonTypeBottom
 }
 
 public enum JHButtonState {
@@ -33,25 +33,25 @@ public enum JHButtonState {
 
 
 public class JHButton: UIControl {
- 
+    
     ///按钮的闭包回调
     public typealias ActionBlock = (_ sender: JHButton) -> Void
     ///title字符串
     public var title : String?{
         didSet{
-            self.titleLabel.text = title
+            titleLabel.text = title
         }
     }
     ///图片
     public var image : UIImage?{
         didSet{
-            self.imageView.image = image
+            imageView.image = image
         }
     }
     ///背景图片
     public var backImage : UIImage?{
         didSet{
-            self.backImageView.image = backImage
+            backImageView.image = backImage
         }
     }
     ///内容文字视图
@@ -68,8 +68,8 @@ public class JHButton: UIControl {
                     self.imageView.transform = CGAffineTransform.identity.rotated(by: CGFloat(Double.pi*180))
                 }
             }else{
-              UIView.animate(withDuration: 0.3) {
-                self.imageView.transform = CGAffineTransform.identity
+                UIView.animate(withDuration: 0.3) {
+                    self.imageView.transform = CGAffineTransform.identity
                 }
             }
         }
@@ -99,12 +99,12 @@ public class JHButton: UIControl {
     
     //MARK: -- 以下内部参数
     ///默认间距
-    static let imageButtonDefaultMargin : Float = 0
-    static let imageButtonDefaultUnsetMargin : Float = -1001
+    static let imageButtonDefaultMargin : Float? = 0
+    static let imageButtonDefaultUnsetMargin : Float? = -1001
     /**
      *  间距
      */
-    private var marginArr : [Float]!
+    private var marginArray : [Float]?
     /**
      *  背景颜色
      */
@@ -143,9 +143,9 @@ public class JHButton: UIControl {
     /**
      *  间距
      */
-    private var marginTopOrLeft : Float = 0.0
-    private var marginBottomOrRight : Float = 0.0
-    private var marginMiddle : Float = 0.0
+    private var marginTopOrLeft : Float? = 0.0
+    private var marginBottomOrRight : Float? = 0.0
+    private var marginMiddle : Float? = 0.0
     /**
      *  填充
      */
@@ -154,10 +154,10 @@ public class JHButton: UIControl {
     /**
      *  按钮类型
      */
-    private var type : JHImageButtonType = .imageButtonTypeLeft
+    private var buttonType : JHImageButtonType = .imageButtonTypeLeft
     
     private var actionBlock : ActionBlock?
-
+    
 }
 
 extension JHButton{
@@ -168,8 +168,8 @@ extension JHButton{
     ///   - marginArr: 从左到右或者从上到下的间距数组
     public convenience init(_ type : JHImageButtonType = .imageButtonTypeLeft, marginArr : [Float]? = [5]) {
         self.init()
-        self.marginArr = marginArr
-        self.type = type
+        marginArray = marginArr
+        buttonType = type
         
         setRootSubView()
     }
@@ -177,12 +177,12 @@ extension JHButton{
     ///触发点击
     public func handleControlEvent(_ event : UIControl.Event , action : @escaping ActionBlock) {
         addTarget(self, action: #selector(callActionBlock), for: event)
-        self.actionBlock = action
+        actionBlock = action
     }
     ///点击闭包
     @objc
     func callActionBlock(_ sender: JHButton) {
-        guard let action = self.actionBlock else {
+        guard let action = actionBlock else {
             return
         }
         action(sender)
@@ -190,42 +190,45 @@ extension JHButton{
     //MARK:--布局
     func setRootSubView() {
         
-        self.backImageView.image = self.image
-        self.addSubview(self.backImageView)
+        backImageView.image = image
+        addSubview(backImageView)
         
-        self.topOrLeftView.isUserInteractionEnabled = false
-        self.addSubview(self.topOrLeftView)
+        topOrLeftView.isUserInteractionEnabled = false
+        addSubview(topOrLeftView)
         
-        self.bottomOrRightView.isUserInteractionEnabled = false
-        self.addSubview(self.bottomOrRightView)
+        bottomOrRightView.isUserInteractionEnabled = false
+        addSubview(bottomOrRightView)
         
-        self.titleLabel.textColor = .black
-        self.titleLabel.textAlignment = .center
-        self.titleLabel.font = UIFont.systemFont(ofSize: 15)
-        self.titleLabel.text = self.title
-        self.addSubview(self.titleLabel)
+        titleLabel.textColor = .black
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.systemFont(ofSize: 15)
+        titleLabel.text = title
+        addSubview(titleLabel)
         
-        self.imageView.setContentCompressionResistancePriority(.required, for: .horizontal)
-        self.imageView.image = self.image
-        self.addSubview(self.imageView)
+        imageView.setContentCompressionResistancePriority(.required, for: .horizontal)
+        imageView.image = image
+        addSubview(imageView)
         
-        switch self.marginArr.count {
+        
+        switch marginArray?.count {
         case 0:
-            self.marginMiddle = JHButton.imageButtonDefaultMargin
-            self.marginTopOrLeft = JHButton.imageButtonDefaultUnsetMargin
-            self.marginBottomOrRight = JHButton.imageButtonDefaultUnsetMargin
+            marginMiddle = JHButton.imageButtonDefaultMargin
+            marginTopOrLeft = JHButton.imageButtonDefaultUnsetMargin
+            marginBottomOrRight = JHButton.imageButtonDefaultUnsetMargin
         case 1:
-            self.marginMiddle = self.marginArr[0]
-            self.marginTopOrLeft = JHButton.imageButtonDefaultUnsetMargin
-            self.marginBottomOrRight = JHButton.imageButtonDefaultUnsetMargin
+            marginMiddle = marginArray?[0]
+            marginTopOrLeft = JHButton.imageButtonDefaultUnsetMargin
+            marginBottomOrRight = JHButton.imageButtonDefaultUnsetMargin
         case 2:
-            self.marginTopOrLeft = self.marginArr[0]
-            self.marginMiddle = self.marginArr[1]
-            self.marginBottomOrRight = JHButton.imageButtonDefaultUnsetMargin
+            marginTopOrLeft = marginArray?[0]
+            marginMiddle = marginArray?[1]
+            marginBottomOrRight = JHButton.imageButtonDefaultUnsetMargin
+        case 3:
+            marginTopOrLeft = marginArray?[0]
+            marginMiddle = marginArray?[1]
+            marginBottomOrRight = marginArray?[2]
         default:
-            self.marginTopOrLeft = self.marginArr[0]
-            self.marginMiddle = self.marginArr[1]
-            self.marginBottomOrRight = self.marginArr[2]
+            debugPrint("")
         }
         
         updateLayout()
@@ -233,7 +236,7 @@ extension JHButton{
     
     func updateLayout() {
         
-        switch self.type {
+        switch buttonType {
         case .imageButtonTypeTop:
             setTop()
         case .imageButtonTypeLeft:
@@ -243,158 +246,159 @@ extension JHButton{
         case .imageButtonTypeRight:
             setRight()
         }
-        self.backImageView.snp.makeConstraints { (make) in
+        
+        backImageView.snp.makeConstraints { (make) in
             make.top.left.bottom.right.equalToSuperview()
         }
     }
     
     func setTop() {
         
-        self.topOrLeftView.snp.makeConstraints { (make) in
+        topOrLeftView.snp.makeConstraints { (make) in
             make.top.left.right.equalToSuperview()
-            make.bottom.equalTo(self.imageView.snp.top)
-            if self.marginTopOrLeft != JHButton.imageButtonDefaultUnsetMargin{
-                make.height.equalTo(self.marginTopOrLeft)
+            make.bottom.equalTo(imageView.snp.top)
+            if marginTopOrLeft != JHButton.imageButtonDefaultUnsetMargin{
+                make.height.equalTo(marginTopOrLeft ?? 0)
             }
-            if self.marginTopOrLeft == self.marginBottomOrRight{
-                make.height.equalTo(self.bottomOrRightView.snp.height)
+            if marginTopOrLeft == marginBottomOrRight{
+                make.height.equalTo(bottomOrRightView.snp.height)
             }
         }
         
-        self.imageView.snp.makeConstraints { (make) in
-            make.centerX.equalTo(self.snp.centerX)
-            make.bottom.equalTo(self.titleLabel.snp.top).offset(-self.marginMiddle)
-        }
-        
-        self.titleLabel.snp.makeConstraints { (make) in
+        imageView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(self.bottomOrRightView.snp.top)
+            make.bottom.equalTo(titleLabel.snp.top).offset(-(marginMiddle ?? 0))
+        }
+        
+        titleLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(bottomOrRightView.snp.top)
             make.height.lessThanOrEqualToSuperview()
         }
         
-        self.bottomOrRightView.snp.makeConstraints { (make) in
+        bottomOrRightView.snp.makeConstraints { (make) in
             make.left.bottom.right.equalToSuperview()
-            if self.marginBottomOrRight != JHButton.imageButtonDefaultUnsetMargin{
-                make.height.equalTo(self.marginBottomOrRight)
+            if marginBottomOrRight != JHButton.imageButtonDefaultUnsetMargin{
+                make.height.equalTo(marginBottomOrRight ?? 0)
             }
         }
         
-        self.snp.makeConstraints { (make) in
-            make.width.greaterThanOrEqualTo(self.imageView.snp.width)
-            make.width.greaterThanOrEqualTo(self.titleLabel.snp.width)
+        snp.makeConstraints { (make) in
+            make.width.greaterThanOrEqualTo(imageView.snp.width)
+            make.width.greaterThanOrEqualTo(titleLabel.snp.width)
         }
-
+        
     }
     
     func setLeft() {
         
-        self.topOrLeftView.snp.makeConstraints { (make) in
+        topOrLeftView.snp.makeConstraints { (make) in
             make.top.left.bottom.equalToSuperview()
-            make.right.equalTo(self.imageView.snp.left)
-            if self.marginTopOrLeft != JHButton.imageButtonDefaultUnsetMargin{
-                make.width.equalTo(self.marginTopOrLeft)
+            make.right.equalTo(imageView.snp.left)
+            if marginTopOrLeft != JHButton.imageButtonDefaultUnsetMargin{
+                make.width.equalTo(marginTopOrLeft ?? 0)
             }
-            if self.marginTopOrLeft == self.marginBottomOrRight{
-                make.width.equalTo(self.bottomOrRightView.snp.width)
+            if marginTopOrLeft == marginBottomOrRight{
+                make.width.equalTo(bottomOrRightView.snp.width)
             }
         }
         
-        self.imageView.snp.makeConstraints { (make) in
+        imageView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.right.equalTo(self.titleLabel.snp.left).offset(-self.marginMiddle)
+            make.right.equalTo(titleLabel.snp.left).offset(-(marginMiddle ?? 0))
         }
         
-        self.titleLabel.snp.makeConstraints { (make) in
+        titleLabel.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.right.equalTo(self.bottomOrRightView.snp.left)
+            make.right.equalTo(bottomOrRightView.snp.left)
             make.width.lessThanOrEqualToSuperview()
         }
         
-        self.bottomOrRightView.snp.makeConstraints { (make) in
+        bottomOrRightView.snp.makeConstraints { (make) in
             make.top.bottom.right.equalToSuperview()
-            if self.marginBottomOrRight != JHButton.imageButtonDefaultUnsetMargin{
-                make.width.equalTo(self.marginBottomOrRight)
+            if marginBottomOrRight != JHButton.imageButtonDefaultUnsetMargin{
+                make.width.equalTo(marginBottomOrRight ?? 0)
             }
         }
         
-        self.snp.makeConstraints { (make) in
-            make.height.greaterThanOrEqualTo(self.imageView.snp.height)
-            make.height.greaterThanOrEqualTo(self.titleLabel.snp.height)
+        snp.makeConstraints { (make) in
+            make.height.greaterThanOrEqualTo(imageView.snp.height)
+            make.height.greaterThanOrEqualTo(titleLabel.snp.height)
         }
     }
     
     func setBottom() {
         
-        self.topOrLeftView.snp.makeConstraints { (make) in
+        topOrLeftView.snp.makeConstraints { (make) in
             make.top.left.right.equalToSuperview()
-            make.bottom.equalTo(self.titleLabel.snp.top)
-            if self.marginTopOrLeft != JHButton.imageButtonDefaultUnsetMargin{
-                make.height.equalTo(self.marginTopOrLeft)
+            make.bottom.equalTo(titleLabel.snp.top)
+            if marginTopOrLeft != JHButton.imageButtonDefaultUnsetMargin{
+                make.height.equalTo(marginTopOrLeft ?? 0)
             }
-            if self.marginTopOrLeft == self.marginBottomOrRight{
-                make.height.equalTo(self.bottomOrRightView.snp.height)
+            if marginTopOrLeft == marginBottomOrRight{
+                make.height.equalTo(bottomOrRightView.snp.height)
             }
         }
         
-        self.titleLabel.snp.makeConstraints { (make) in
+        titleLabel.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(self.imageView.snp.top).offset(-self.marginMiddle)
+            make.bottom.equalTo(imageView.snp.top).offset(-(marginMiddle ?? 0))
             make.height.lessThanOrEqualToSuperview()
         }
         
-        self.imageView.snp.makeConstraints { (make) in
-            make.centerX.equalTo(self.snp.centerX)
-            make.bottom.equalTo(self.bottomOrRightView.snp.top)
+        imageView.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(bottomOrRightView.snp.top)
         }
         
-        self.bottomOrRightView.snp.makeConstraints { (make) in
+        bottomOrRightView.snp.makeConstraints { (make) in
             make.left.bottom.right.equalToSuperview()
-            if self.marginBottomOrRight != JHButton.imageButtonDefaultUnsetMargin{
-                make.height.equalTo(self.marginBottomOrRight)
+            if marginBottomOrRight != JHButton.imageButtonDefaultUnsetMargin{
+                make.height.equalTo(marginBottomOrRight ?? 0)
             }
         }
         
-        self.snp.makeConstraints { (make) in
-            make.width.greaterThanOrEqualTo(self.imageView.snp.width)
-            make.width.greaterThanOrEqualTo(self.titleLabel.snp.width)
+        snp.makeConstraints { (make) in
+            make.width.greaterThanOrEqualTo(imageView.snp.width)
+            make.width.greaterThanOrEqualTo(titleLabel.snp.width)
         }
-
+        
     }
     
     func setRight() {
         
-        self.topOrLeftView.snp.makeConstraints { (make) in
+        topOrLeftView.snp.makeConstraints { (make) in
             make.top.left.bottom.equalToSuperview()
-            make.right.equalTo(self.titleLabel.snp.left)
-            if self.marginTopOrLeft != JHButton.imageButtonDefaultUnsetMargin{
-                make.width.equalTo(self.marginTopOrLeft)
+            make.right.equalTo(titleLabel.snp.left)
+            if marginTopOrLeft != JHButton.imageButtonDefaultUnsetMargin{
+                make.width.equalTo(marginTopOrLeft ?? 0)
             }
-            if self.marginTopOrLeft == self.marginBottomOrRight{
-                make.width.equalTo(self.bottomOrRightView.snp.width)
+            if marginTopOrLeft == marginBottomOrRight{
+                make.width.equalTo(bottomOrRightView.snp.width)
             }
         }
         
-        self.titleLabel.snp.makeConstraints { (make) in
+        titleLabel.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.right.equalTo(self.imageView.snp.left).offset(-self.marginMiddle)
+            make.right.equalTo(imageView.snp.left).offset(-(marginMiddle ?? 0))
             make.width.lessThanOrEqualToSuperview()
         }
         
-        self.imageView.snp.makeConstraints { (make) in
+        imageView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.right.equalTo(self.bottomOrRightView.snp.left)
+            make.right.equalTo(bottomOrRightView.snp.left)
         }
         
-        self.bottomOrRightView.snp.makeConstraints { (make) in
+        bottomOrRightView.snp.makeConstraints { (make) in
             make.top.bottom.right.equalToSuperview()
-            if self.marginBottomOrRight != JHButton.imageButtonDefaultUnsetMargin{
-                make.width.equalTo(self.marginBottomOrRight)
+            if marginBottomOrRight != JHButton.imageButtonDefaultUnsetMargin{
+                make.width.equalTo(marginBottomOrRight ?? 0)
             }
         }
         
-        self.snp.makeConstraints { (make) in
-            make.height.greaterThanOrEqualTo(self.imageView.snp.height)
-            make.height.greaterThanOrEqualTo(self.titleLabel.snp.height)
+        snp.makeConstraints { (make) in
+            make.height.greaterThanOrEqualTo(imageView.snp.height)
+            make.height.greaterThanOrEqualTo(titleLabel.snp.height)
         }
         
     }
@@ -403,228 +407,219 @@ extension JHButton{
     
     /// 设置背景颜色
     /// - Parameters:
-    ///   - normalColor: 普通状态
-    ///   - highLightColor: 点击状态
-    ///   - selectedColor: 选中状态
-    ///   - disableColor: 不可用状态
-    public func setBackColor(normalColor : UIColor,
-                             highLightColor : UIColor? = .clear,
-                             selectedColor : UIColor? = .clear,
-                             disableColor  : UIColor? = .clear ){
-        self.normalColor = normalColor
-        self.highLightColor = highLightColor
-        self.selectedColor = selectedColor
-        self.disableColor = disableColor
-        switch self.currentState {
+    ///   - normal: 普通状态
+    ///   - highLight: 点击状态
+    ///   - selected: 选中状态
+    ///   - disable: 不可用状态
+    public func setBackColor(normal : UIColor,
+                             highLight : UIColor? = .clear,
+                             selected : UIColor? = .clear,
+                             disable  : UIColor? = .clear ){
+        normalColor = normal
+        highLightColor = highLight
+        selectedColor = selected
+        disableColor = disable
+        switch currentState {
         case .buttonStateNormal:
-            self.backgroundColor = normalColor
+            backgroundColor = normalColor
         case .buttonStateHighLight:
-            self.backgroundColor = highLightColor
+            backgroundColor = highLightColor
         case .buttonStateSelected:
-            self.backgroundColor = selectedColor
+            backgroundColor = selectedColor
         case .buttonStateDisable:
-            self.backgroundColor = disableColor
+            backgroundColor = disableColor
         }
     }
     
     /// 设置图片
     /// - Parameters:
-    ///   - normalImage: 普通状态
-    ///   - highLightImage: 点击状态
-    ///   - selectedImage: 选中状态
-    ///   - disableImage: 不可用状态
-    public func setImage(normalImage : UIImage,
-                         highLightImage : UIImage? = nil,
-                         selectedImage : UIImage? = nil,
-                         disableImage  : UIImage? = nil ){
-        self.normalImage = normalImage
-        self.highLightImage = highLightImage
-        self.selectedImage = selectedImage
-        self.disableImage = disableImage
-        switch self.currentState {
+    ///   - normal: 普通状态
+    ///   - highLight: 点击状态
+    ///   - selected: 选中状态
+    ///   - disable: 不可用状态
+    public func setImage(normal : UIImage,
+                         highLight : UIImage? = nil,
+                         selected : UIImage? = nil,
+                         disable  : UIImage? = nil ){
+        normalImage = normal
+        highLightImage = highLight
+        selectedImage = selected
+        disableImage = disable
+        switch currentState {
         case .buttonStateNormal:
-            self.image = normalImage
+            image = normalImage
         case .buttonStateHighLight:
-            self.image = highLightImage
+            image = highLightImage
         case .buttonStateSelected:
-            self.image = selectedImage
+            image = selectedImage
         case .buttonStateDisable:
-            self.image = disableImage
+            image = disableImage
         }
     }
     
     /// 设置标题字体颜色
     /// - Parameters:
-    ///   - normalTitleColor: 普通状态
-    ///   - highLightTitleColor: 点击状态
-    ///   - selectedTitleColor: 选中状态
-    ///   - disableTitleColor: 不可用状态
-    public func setTitleColor(normalTitleColor : UIColor,
-                              highLightTitleColor : UIColor? = .clear,
-                              selectedTitleColor : UIColor? = .clear,
-                              disableTitleColor  : UIColor? = .clear ){
-        self.normalTitleColor = normalTitleColor
-        self.highLightTitleColor = highLightTitleColor
-        self.selectedTitleColor = selectedTitleColor
-        self.disableTitleColor = disableTitleColor
-        switch self.currentState {
+    ///   - normal: 普通状态
+    ///   - highLight: 点击状态
+    ///   - selected: 选中状态
+    ///   - disable: 不可用状态
+    public func setTitleColor(normal : UIColor,
+                              highLight : UIColor? = .clear,
+                              selected : UIColor? = .clear,
+                              disable  : UIColor? = .clear ){
+        normalTitleColor = normal
+        highLightTitleColor = highLight
+        selectedTitleColor = selected
+        disableTitleColor = disable
+        switch currentState {
         case .buttonStateNormal:
-            self.titleLabel.textColor = normalTitleColor
+            titleLabel.textColor = normalTitleColor
         case .buttonStateHighLight:
-            self.titleLabel.textColor = highLightTitleColor
+            titleLabel.textColor = highLightTitleColor
         case .buttonStateSelected:
-            self.titleLabel.textColor = selectedTitleColor
+            titleLabel.textColor = selectedTitleColor
         case .buttonStateDisable:
-            self.titleLabel.textColor = disableTitleColor
+            titleLabel.textColor = disableTitleColor
         }
     }
     
     /// 设置边框颜色
     /// - Parameters:
-    ///   - normalLayerColor: 普通状态
-    ///   - highLightLayerColor: 点击状态
-    ///   - selectedLayerColor: 选中状态
-    ///   - disableLayerColor: 不可用状态
-    public func setLayerColor(normalLayerColor : UIColor,
-                              highLightLayerColor : UIColor? = .clear,
-                              selectedLayerColor : UIColor? = .clear,
-                              disableLayerColor  : UIColor? = .clear ){
-        self.normalLayerColor = normalLayerColor
-        self.highLightLayerColor = highLightLayerColor
-        self.selectedLayerColor = selectedLayerColor
-        self.disableLayerColor = disableLayerColor
-        switch self.currentState {
+    ///   - normal: 普通状态
+    ///   - highLight: 点击状态
+    ///   - selected: 选中状态
+    ///   - disable: 不可用状态
+    public func setLayerColor(normal : UIColor,
+                              highLight : UIColor? = .clear,
+                              selected : UIColor? = .clear,
+                              disable  : UIColor? = .clear ){
+        normalLayerColor = normal
+        highLightLayerColor = highLight
+        selectedLayerColor = selected
+        disableLayerColor = disable
+        switch currentState {
         case .buttonStateNormal:
-            self.layer.borderColor = normalLayerColor.cgColor
+            layer.borderColor = normalLayerColor?.cgColor
         case .buttonStateHighLight:
-            self.layer.borderColor = highLightLayerColor?.cgColor
+            layer.borderColor = highLightLayerColor?.cgColor
         case .buttonStateSelected:
-            self.layer.borderColor = selectedLayerColor?.cgColor
+            layer.borderColor = selectedLayerColor?.cgColor
         case .buttonStateDisable:
-            self.layer.borderColor = disableLayerColor?.cgColor
+            layer.borderColor = disableLayerColor?.cgColor
         }
     }
     
     /// 设置背景图片
     /// - Parameters:
-    ///   - normalBackImage: 普通状态
-    ///   - highLightBackImage: 点击状态
-    ///   - selectedBackImage: 选中状态
-    ///   - disableBackImage: 不可用状态
-    public func setBackImage(normalBackImage : UIImage,
-                         highLightBackImage : UIImage? = nil,
-                         selectedBackImage : UIImage? = nil,
-                         disableBackImage  : UIImage? = nil ){
-        self.normalBackImage = normalBackImage
-        self.highLightBackImage = highLightBackImage
-        self.selectedBackImage = selectedBackImage
-        self.disableBackImage = disableBackImage
-        switch self.currentState {
+    ///   - normal: 普通状态
+    ///   - highLight: 点击状态
+    ///   - selected: 选中状态
+    ///   - disable: 不可用状态
+    public func setBackImage(normal : UIImage,
+                             highLight : UIImage? = nil,
+                             selected : UIImage? = nil,
+                             disable  : UIImage? = nil ){
+        normalBackImage = normal
+        highLightBackImage = highLight
+        selectedBackImage = selected
+        disableBackImage = disable
+        switch currentState {
         case .buttonStateNormal:
-            self.backImage = normalBackImage
+            backImage = normalBackImage
         case .buttonStateHighLight:
-            self.backImage = highLightBackImage
+            backImage = highLightBackImage
         case .buttonStateSelected:
-            self.backImage = selectedBackImage
+            backImage = selectedBackImage
         case .buttonStateDisable:
-            self.backImage = disableBackImage
+            backImage = disableBackImage
         }
     }
     
     //MARK: --状态设置
     func setNormal() {
-        guard self.currentState != .buttonStateNormal else { return }
+        guard currentState != .buttonStateNormal else { return }
         
-        self.currentState = .buttonStateNormal
+        currentState = .buttonStateNormal
         
-        if self.normalColor != nil{
-            self.backgroundColor = self.normalColor
+        if let color = normalColor{
+            backgroundColor = color
         }
-        if self.normalImage != nil{
-            self.imageView.image = self.normalImage
+        if let image = normalImage{
+            imageView.image = image
         }
-        if self.normalTitleColor != nil{
-            self.titleLabel.textColor = self.normalTitleColor
+        if let titleColor = normalTitleColor{
+            titleLabel.textColor = titleColor
         }
-        
-        if self.normalLayerColor != nil{
-            self.layer.borderColor = self.normalLayerColor?.cgColor;
+        if let layerColor = normalLayerColor{
+            layer.borderColor = layerColor.cgColor
         }
-        
-        if self.normalBackImage != nil{
-            self.backImageView.image = self.normalBackImage;
+        if let backImage = normalBackImage{
+            backImageView.image = backImage
         }
     }
     
     func setHighLight() {
-        guard self.currentState != .buttonStateHighLight else { return }
+        guard currentState != .buttonStateHighLight else { return }
         
-        self.currentState = .buttonStateHighLight
+        currentState = .buttonStateHighLight
         
-        if self.highLightColor != nil{
-            self.backgroundColor = self.highLightColor
+        if let color = highLightColor{
+            backgroundColor = color
         }
-        if self.highLightImage != nil{
-            self.imageView.image = self.highLightImage
+        if let image = highLightImage{
+            imageView.image = image
         }
-        if self.highLightTitleColor != nil{
-            self.titleLabel.textColor = self.highLightTitleColor
+        if let titleColor = highLightTitleColor{
+            titleLabel.textColor = titleColor
+        }
+        if let layerColor = highLightLayerColor{
+            layer.borderColor = layerColor.cgColor
+        }
+        if let backImage = highLightBackImage{
+            backImageView.image = backImage
         }
         
-        if self.highLightLayerColor != nil{
-            self.layer.borderColor = self.highLightLayerColor?.cgColor;
-        }
-        
-        if self.highLightBackImage != nil{
-            self.backImageView.image = self.highLightBackImage;
-        }
     }
     
     func setSelected() {
-        guard self.currentState != .buttonStateSelected else { return }
+        guard currentState != .buttonStateSelected else { return }
         
-        self.currentState = .buttonStateSelected
-        
-        if self.selectedColor != nil{
-            self.backgroundColor = self.selectedColor
+        currentState = .buttonStateSelected
+        if let color = selectedColor{
+            backgroundColor = color
         }
-        if self.selectedImage != nil{
-            self.imageView.image = self.selectedImage
+        if let image = selectedImage{
+            imageView.image = image
         }
-        if self.selectedTitleColor != nil{
-            self.titleLabel.textColor = self.selectedTitleColor
+        if let titleColor = selectedTitleColor{
+            titleLabel.textColor = titleColor
         }
-        
-        if self.selectedLayerColor != nil{
-            self.layer.borderColor = self.selectedLayerColor?.cgColor;
+        if let layerColor = selectedLayerColor{
+            layer.borderColor = layerColor.cgColor
         }
-        
-        if self.selectedBackImage != nil{
-            self.backImageView.image = self.selectedBackImage;
+        if let backImage = selectedBackImage{
+            backImageView.image = backImage
         }
     }
     
     func setDisable() {
-        guard self.currentState != .buttonStateDisable else { return }
+        guard currentState != .buttonStateDisable else { return }
         
-        self.currentState = .buttonStateDisable
-        
-        if self.disableColor != nil{
-            self.backgroundColor = self.disableColor
+        currentState = .buttonStateDisable        
+        if let color = disableColor{
+            backgroundColor = color
         }
-        if self.disableImage != nil{
-            self.imageView.image = self.disableImage
+        if let image = disableImage{
+            imageView.image = image
         }
-        if self.disableTitleColor != nil{
-            self.titleLabel.textColor = self.disableTitleColor
+        if let titleColor = disableTitleColor{
+            titleLabel.textColor = titleColor
         }
-        
-        if self.disableLayerColor != nil{
-            self.layer.borderColor = self.disableLayerColor?.cgColor;
+        if let layerColor = disableLayerColor{
+            layer.borderColor = layerColor.cgColor
         }
-        
-        if self.disableBackImage != nil{
-            self.backImageView.image = self.disableBackImage;
+        if let backImage = disableBackImage{
+            backImageView.image = backImage
         }
     }
     

@@ -60,9 +60,9 @@ class ViewController: UIViewController {
         }
         
         let btn5 = JHButton.init(.imageButtonTypeLeft,marginArr: [10,20,5])
-        btn5.setImage(normalImage: UIImage.init(named: "image1")!, highLightImage: UIImage.init(named: "image3")!)
-        btn5.setTitleColor(normalTitleColor: .red, highLightTitleColor: .green)
-        btn5.setLayerColor(normalLayerColor: .purple, highLightLayerColor: .black)
+        btn5.setImage(normal: UIImage.init(named: "image1")!, highLight: UIImage.init(named: "image3")!)
+        btn5.setTitleColor(normal: .red, highLight: .green)
+        btn5.setLayerColor(normal: .purple, highLight: .black)
         btn5.title = "123123"
         btn5.titleLabel.textColor = .red
         btn5.titleLabel.font = UIFont.systemFont(ofSize: 13)
