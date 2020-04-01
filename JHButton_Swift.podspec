@@ -20,4 +20,6 @@ Pod::Spec.new do |s|
   s.frameworks   = "UIKit" #支持的框架
   s.requires_arc        = true
   s.dependency 'SnapKit'
+
+  # fastlane release_pod t:1.0.0 p:JHButton_Swift
 end
