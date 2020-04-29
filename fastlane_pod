@@ -14,21 +14,22 @@ CUR_DIR=$(cd `dirname $0` && pwd -P )
 echo "当前文件路径 $CUR_DIR"
 cd $CUR_DIR
 
+
+read -p " 
+
+🚀 请输入版本号: " user_tags
+
+read -p " 
+
+🚀 请输入podspec名称: " user_project
+
 echo "
 
-🚀 请输入版本号 tag :
+🚀 $user_project 即将发布版本 : $user_tags
 
 "
 
-read tag
-
-echo "
-
-🚀 即将发布版本 : $tag
-
-"
-
-fastlane tag:$tag
+fastlane release_pod t:$user_tags p:$user_project
  
 echo "
 
