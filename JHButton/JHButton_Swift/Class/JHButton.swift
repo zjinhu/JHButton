@@ -55,11 +55,24 @@ public class JHButton: UIControl {
         }
     }
     ///内容文字视图
-    public var titleLabel = UILabel()
+    public lazy var titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.textColor = .black
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.systemFont(ofSize: 15)
+        return titleLabel
+    }()
     ///图片视图
-    public var imageView = UIImageView()
+    public lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.setContentCompressionResistancePriority(.required, for: .horizontal)
+        return imageView
+    }()
     ///背景图片视图
-    public var backImageView = UIImageView()
+    public lazy var backImageView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
     ///是否反转
     public var isNeedRotation : Bool = false{
         didSet{
@@ -199,16 +212,11 @@ extension JHButton{
         bottomOrRightView.isUserInteractionEnabled = false
         addSubview(bottomOrRightView)
         
-        titleLabel.textColor = .black
-        titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.systemFont(ofSize: 15)
         titleLabel.text = title
         addSubview(titleLabel)
         
-        imageView.setContentCompressionResistancePriority(.required, for: .horizontal)
         imageView.image = image
         addSubview(imageView)
-        
         
         switch marginArray?.count {
         case 0:
