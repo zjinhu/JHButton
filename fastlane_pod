@@ -34,7 +34,6 @@ echo "(0) 退出
   done  
 echo "
 🎉  🎉  🎉  🎉  🎉  🎉  🎉  🎉  🎉  🎉  🎉  🎉  
-
 "
 read input
 
@@ -58,10 +57,16 @@ case $input in
     read -p "🚀 请输入版本号: " user_tags
 
     # fastlane $podspec tag:$user_tags;;
-    fastlane release_pod t:$user_tags p:$podspec;;
+
+    fastlane release_pod t:$user_tags p:$podspec 
+    echo "
+🚀 fastlane release_pod t:$user_tags p:$podspec
+    "
+    ;;
 
     0)
-    exit;;
+    exit 
+    ;;
 esac
 
 exit
