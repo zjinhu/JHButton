@@ -42,22 +42,21 @@ read input
 case $input in
   
     [1-9])
-# 处理文件名
-	name1=${array[1]} 
-    echo "111$name1"
+# 处理文件名 
+	name1=${array[$input]} 
+   # echo "111$name1"
 # 截取掉/左边的
 	name2=${name1#*/}
-    echo "222$name2"
+    # echo "222$name2"
 # 截取掉。后边的
 	podspec=${name2%.*}
-    echo "333$podspec"
+    # echo "333$podspec"
 
-    echo "🎉🎉已经选择：$input--podspec名称为：$podspec
+    echo "
+🚀 已经选择仓库名称为：$podspec
     "
 
-    read -p " 
-
-🚀 请输入版本号: " user_tags
+    read -p "🚀 请输入版本号: " user_tags
 
     # fastlane $podspec tag:$user_tags;;
     fastlane release_pod t:$user_tags p:$podspec;;
