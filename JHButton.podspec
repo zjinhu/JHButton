@@ -1,7 +1,7 @@
  
 Pod::Spec.new do |s|
   s.name             = 'JHButton'
-  s.version          = '1.3.1'
+  s.version          = '1'
   s.summary          = '自定义图文按钮,使用masonry.'
  
   s.description      = <<-DESC
