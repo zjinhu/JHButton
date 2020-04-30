@@ -1,5 +1,5 @@
 #!/bin/bash
-#!/bin/bash
+SECONDS=0
 fadir()  
 {  
     local this_dir=`pwd`  
@@ -63,14 +63,17 @@ case $input in
     # fastlane $podspec tag:$user_tags;;
 
     fastlane release_pod t:$user_tags p:$podspec 
-
     ;;
 
     0)
     exit 
     ;;
 esac
+echo "
 
+🚀 总用时: ${SECONDS}s
+
+"
 exit
  
 
